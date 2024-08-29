@@ -37,7 +37,7 @@ install.packages(c("scam","Seurat","dplyr","plotly","resample","fields","patchwo
 ```
 
 ## How to use 'PoweREST'
-Detailed steps are introduced in [Tutorial](https://lanshui98.github.io/powerest/documentation/config.html).
+Detailed steps are introduced in [Tutorial](https://lanshui98.github.io/powerest_tutorial/).
 
 The vignette of the package is also available.
 
