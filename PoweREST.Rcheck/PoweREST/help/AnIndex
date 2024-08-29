@@ -1,0 +1,13 @@
+%>%	pipe
+fit_powerest	fit_powerest
+fit_XGBoost	fit_XGBoost
+plotly_powerest	plotly_powerest
+PoweREST	PoweREST
+PoweREST_gene	PoweREST_gene
+PoweREST_subset	PoweREST_subset
+power_example	power_example
+pred_powerest	pred_powerest
+pred_XGBoost	pred_XGBoost
+result_example	result_example
+vis_powerest	vis_powerest
+vis_XGBoost	vis_XGBoost

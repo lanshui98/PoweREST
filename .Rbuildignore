@@ -1,0 +1,11 @@
+^PoweREST\.Rproj$
+^\.Rproj\.user$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^doc$
+^Meta$
+^LICENSE\.md$
+^README\.md$
+^NEWS\.md$
+^cran-comments\.md$

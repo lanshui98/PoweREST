@@ -1,0 +1,26 @@
+Package: PoweREST
+Title: A Bootstrap-Based Power Estimation Tool for Spatial Transcriptomics
+Version: 0.1.0
+Imports: 
+    scam,
+    Seurat,
+    dplyr,
+    plotly,
+    resample,
+    xgboost,
+    magrittr,
+    rayshader,
+    ggplot2
+Suggests: patchwork, boot, knitr, rmarkdown, fields, rayrender, tidyr
+Authors@R: 
+    person("Lan", "Shui", , "Lan.Shui@uth.tmc.edu", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-2719-842X"))
+Description: Power estimation and sample size calculation for 10X 'Visium' 'Spatial Transcriptomics' data to detect differential expressed genes between two conditions based on bootstrap resampling.
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+VignetteBuilder: knitr
+License: MIT + file LICENSE
+Depends: 
+    R (>= 2.10)
+LazyData: true

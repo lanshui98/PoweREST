@@ -1,0 +1,17 @@
+PoweREST                Bootstrap resampling and power calculation upon
+                        ST data
+PoweREST_gene           Bootstrap resampling and power estimation for
+                        one single gene
+PoweREST_subset         Bootstrap resampling and power calculation for
+                        a subset of genes
+fit_XGBoost             Fit with XGBoost
+fit_powerest            Fit the power surface
+plotly_powerest         3D interactive visualization
+power_example           An example of power results with multiple
+                        replicates number
+pred_XGBoost            Prediction results from XGBoost
+pred_powerest           Power value prediction
+result_example          An example of power results from PoweREST
+vis_XGBoost             Visualization of the power estimations from
+                        XGBoost
+vis_powerest            Visualization of the power surface

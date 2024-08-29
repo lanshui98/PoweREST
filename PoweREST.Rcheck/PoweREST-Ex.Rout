@@ -1,0 +1,550 @@
+
+R version 4.4.0 (2024-04-24) -- "Puppy Cup"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin20
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "PoweREST"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> base::assign(".ExTimings", "PoweREST-Ex.timings", pos = 'CheckExEnv')
+> base::cat("name\tuser\tsystem\telapsed\n", file=base::get(".ExTimings", pos = 'CheckExEnv'))
+> base::assign(".format_ptime",
++ function(x) {
++   if(!is.na(x[4L])) x[1L] <- x[1L] + x[4L]
++   if(!is.na(x[5L])) x[2L] <- x[2L] + x[5L]
++   options(OutDec = '.')
++   format(x[1L:3L], digits = 7L)
++ },
++ pos = 'CheckExEnv')
+> 
+> ### * </HEADER>
+> library('PoweREST')
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("fit_XGBoost")
+> ### * fit_XGBoost
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: fit_XGBoost
+> ### Title: Fit with XGBoost
+> ### Aliases: fit_XGBoost
+> 
+> ### ** Examples
+> 
+> data(power_example)
+> # Fit the local power surface of avg_log2FC_abs between 1 and 2
+> avg_log2FC_abs_1_2<-dplyr::filter(power_example,avg_log2FC_abs>1 & avg_log2FC_abs<2)
+> # Fit the model
+> bst<-fit_XGBoost(power_example$power,avg_log2FC=power_example$avg_log2FC_abs,
++ avg_PCT=power_example$mean_pct,replicates=power_example$sample_size)
+[14:25:58] WARNING: src/objective/regression_obj.cu:213: reg:linear is now deprecated in favor of reg:squarederror.
+[1]	train-rmse:3.899410 
+[2]	train-rmse:3.526278 
+[3]	train-rmse:3.304421 
+[4]	train-rmse:3.162909 
+[5]	train-rmse:3.070662 
+[6]	train-rmse:3.022160 
+[7]	train-rmse:2.985705 
+[8]	train-rmse:2.960430 
+[9]	train-rmse:2.897214 
+[10]	train-rmse:2.851660 
+[11]	train-rmse:2.802100 
+[12]	train-rmse:2.767539 
+[13]	train-rmse:2.738521 
+[14]	train-rmse:2.721141 
+[15]	train-rmse:2.704307 
+[16]	train-rmse:2.691786 
+[17]	train-rmse:2.675275 
+[18]	train-rmse:2.653118 
+[19]	train-rmse:2.634277 
+[20]	train-rmse:2.612226 
+[21]	train-rmse:2.597224 
+[22]	train-rmse:2.591398 
+[23]	train-rmse:2.576851 
+[24]	train-rmse:2.561155 
+[25]	train-rmse:2.549148 
+[26]	train-rmse:2.541995 
+[27]	train-rmse:2.534172 
+[28]	train-rmse:2.531158 
+[29]	train-rmse:2.523874 
+[30]	train-rmse:2.513346 
+[31]	train-rmse:2.504330 
+[32]	train-rmse:2.499985 
+[33]	train-rmse:2.494602 
+[34]	train-rmse:2.490118 
+[35]	train-rmse:2.485187 
+[36]	train-rmse:2.481274 
+[37]	train-rmse:2.478983 
+[38]	train-rmse:2.474464 
+[39]	train-rmse:2.472630 
+[40]	train-rmse:2.470462 
+[41]	train-rmse:2.465974 
+[42]	train-rmse:2.463282 
+[43]	train-rmse:2.461544 
+[44]	train-rmse:2.459646 
+[45]	train-rmse:2.457870 
+[46]	train-rmse:2.457458 
+[47]	train-rmse:2.456774 
+[48]	train-rmse:2.454137 
+[49]	train-rmse:2.451836 
+[50]	train-rmse:2.448660 
+[51]	train-rmse:2.447398 
+[52]	train-rmse:2.446590 
+[53]	train-rmse:2.446181 
+[54]	train-rmse:2.445337 
+[55]	train-rmse:2.440712 
+[56]	train-rmse:2.439058 
+[57]	train-rmse:2.438639 
+[58]	train-rmse:2.438273 
+[59]	train-rmse:2.437549 
+[60]	train-rmse:2.436880 
+[61]	train-rmse:2.436747 
+[62]	train-rmse:2.436142 
+[63]	train-rmse:2.436074 
+[64]	train-rmse:2.436004 
+[65]	train-rmse:2.435452 
+[66]	train-rmse:2.435168 
+[67]	train-rmse:2.434432 
+[68]	train-rmse:2.434199 
+[69]	train-rmse:2.434129 
+[70]	train-rmse:2.433798 
+[71]	train-rmse:2.433172 
+[72]	train-rmse:2.432885 
+[73]	train-rmse:2.432878 
+[74]	train-rmse:2.432361 
+[75]	train-rmse:2.431104 
+[76]	train-rmse:2.430946 
+[77]	train-rmse:2.430928 
+[78]	train-rmse:2.430922 
+[79]	train-rmse:2.430885 
+[80]	train-rmse:2.430406 
+[81]	train-rmse:2.429241 
+[82]	train-rmse:2.428940 
+[83]	train-rmse:2.428897 
+[84]	train-rmse:2.428869 
+[85]	train-rmse:2.426834 
+[86]	train-rmse:2.425378 
+[87]	train-rmse:2.425094 
+[88]	train-rmse:2.425047 
+[89]	train-rmse:2.424926 
+[90]	train-rmse:2.424915 
+[91]	train-rmse:2.424905 
+[92]	train-rmse:2.424811 
+[93]	train-rmse:2.424751 
+[94]	train-rmse:2.424695 
+[95]	train-rmse:2.424657 
+[96]	train-rmse:2.424631 
+[97]	train-rmse:2.424603 
+[98]	train-rmse:2.424565 
+[99]	train-rmse:2.424548 
+[100]	train-rmse:2.424535 
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("fit_XGBoost", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("fit_powerest")
+> ### * fit_powerest
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: fit_powerest
+> ### Title: Fit the power surface
+> ### Aliases: fit_powerest
+> 
+> ### ** Examples
+> 
+> data(result_example)
+>  ## No test: 
+> b<-fit_powerest(result_example$power,result_example$avg_logFC,result_example$avg_PCT)
+> ## End(No test)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("fit_powerest", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("plotly_powerest")
+> ### * plotly_powerest
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: plotly_powerest
+> ### Title: 3D interactive visualization
+> ### Aliases: plotly_powerest
+> 
+> ### ** Examples
+> 
+> data(result_example)
+>  ## No test: 
+> b<-fit_powerest(result_example$power,result_example$avg_logFC,result_example$avg_PCT)
+> ## End(No test)
+>  ## No test: 
+> pred <- pred_powerest(b,xlim= c(0,6),ylim=c(0,1))
+> ## End(No test)
+>  ## No test: 
+> plotly_powerest(pred,fig_title='Power estimation result')
+> ## End(No test)
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("plotly_powerest", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("pred_XGBoost")
+> ### * pred_XGBoost
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: pred_XGBoost
+> ### Title: Prediction results from XGBoost
+> ### Aliases: pred_XGBoost
+> 
+> ### ** Examples
+> 
+> data(power_example)
+> # Fit the local power surface of avg_log2FC_abs between 1 and 2
+> avg_log2FC_abs_1_2<-dplyr::filter(power_example,avg_log2FC_abs>1 & avg_log2FC_abs<2)
+> # Fit the model
+> bst<-fit_XGBoost(power_example$power,avg_log2FC=power_example$avg_log2FC_abs,
++ avg_PCT=power_example$mean_pct,replicates=power_example$sample_size)
+[14:26:39] WARNING: src/objective/regression_obj.cu:213: reg:linear is now deprecated in favor of reg:squarederror.
+[1]	train-rmse:3.899410 
+[2]	train-rmse:3.526278 
+[3]	train-rmse:3.304421 
+[4]	train-rmse:3.162909 
+[5]	train-rmse:3.070662 
+[6]	train-rmse:3.022160 
+[7]	train-rmse:2.985705 
+[8]	train-rmse:2.960430 
+[9]	train-rmse:2.897214 
+[10]	train-rmse:2.851660 
+[11]	train-rmse:2.802100 
+[12]	train-rmse:2.767539 
+[13]	train-rmse:2.738521 
+[14]	train-rmse:2.721141 
+[15]	train-rmse:2.704307 
+[16]	train-rmse:2.691786 
+[17]	train-rmse:2.675275 
+[18]	train-rmse:2.653118 
+[19]	train-rmse:2.634277 
+[20]	train-rmse:2.612226 
+[21]	train-rmse:2.597224 
+[22]	train-rmse:2.591398 
+[23]	train-rmse:2.576851 
+[24]	train-rmse:2.561155 
+[25]	train-rmse:2.549148 
+[26]	train-rmse:2.541995 
+[27]	train-rmse:2.534172 
+[28]	train-rmse:2.531158 
+[29]	train-rmse:2.523874 
+[30]	train-rmse:2.513346 
+[31]	train-rmse:2.504330 
+[32]	train-rmse:2.499985 
+[33]	train-rmse:2.494602 
+[34]	train-rmse:2.490118 
+[35]	train-rmse:2.485187 
+[36]	train-rmse:2.481274 
+[37]	train-rmse:2.478983 
+[38]	train-rmse:2.474464 
+[39]	train-rmse:2.472630 
+[40]	train-rmse:2.470462 
+[41]	train-rmse:2.465974 
+[42]	train-rmse:2.463282 
+[43]	train-rmse:2.461544 
+[44]	train-rmse:2.459646 
+[45]	train-rmse:2.457870 
+[46]	train-rmse:2.457458 
+[47]	train-rmse:2.456774 
+[48]	train-rmse:2.454137 
+[49]	train-rmse:2.451836 
+[50]	train-rmse:2.448660 
+[51]	train-rmse:2.447398 
+[52]	train-rmse:2.446590 
+[53]	train-rmse:2.446181 
+[54]	train-rmse:2.445337 
+[55]	train-rmse:2.440712 
+[56]	train-rmse:2.439058 
+[57]	train-rmse:2.438639 
+[58]	train-rmse:2.438273 
+[59]	train-rmse:2.437549 
+[60]	train-rmse:2.436880 
+[61]	train-rmse:2.436747 
+[62]	train-rmse:2.436142 
+[63]	train-rmse:2.436074 
+[64]	train-rmse:2.436004 
+[65]	train-rmse:2.435452 
+[66]	train-rmse:2.435168 
+[67]	train-rmse:2.434432 
+[68]	train-rmse:2.434199 
+[69]	train-rmse:2.434129 
+[70]	train-rmse:2.433798 
+[71]	train-rmse:2.433172 
+[72]	train-rmse:2.432885 
+[73]	train-rmse:2.432878 
+[74]	train-rmse:2.432361 
+[75]	train-rmse:2.431104 
+[76]	train-rmse:2.430946 
+[77]	train-rmse:2.430928 
+[78]	train-rmse:2.430922 
+[79]	train-rmse:2.430885 
+[80]	train-rmse:2.430406 
+[81]	train-rmse:2.429241 
+[82]	train-rmse:2.428940 
+[83]	train-rmse:2.428897 
+[84]	train-rmse:2.428869 
+[85]	train-rmse:2.426834 
+[86]	train-rmse:2.425378 
+[87]	train-rmse:2.425094 
+[88]	train-rmse:2.425047 
+[89]	train-rmse:2.424926 
+[90]	train-rmse:2.424915 
+[91]	train-rmse:2.424905 
+[92]	train-rmse:2.424811 
+[93]	train-rmse:2.424751 
+[94]	train-rmse:2.424695 
+[95]	train-rmse:2.424657 
+[96]	train-rmse:2.424631 
+[97]	train-rmse:2.424603 
+[98]	train-rmse:2.424565 
+[99]	train-rmse:2.424548 
+[100]	train-rmse:2.424535 
+> pred<-pred_XGBoost(bst,n.grid=30,xlim=c(0,1.5),ylim=c(0,0.1),replicates=3)
+Warning: The `x` argument of `as_tibble.matrix()` must have unique column names if
+`.name_repair` is omitted as of tibble 2.0.0.
+ℹ Using compatibility `.name_repair`.
+ℹ The deprecated feature was likely used in the PoweREST package.
+  Please report the issue to the authors.
+Warning: `data_frame()` was deprecated in tibble 1.1.0.
+ℹ Please use `tibble()` instead.
+ℹ The deprecated feature was likely used in the PoweREST package.
+  Please report the issue to the authors.
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("pred_XGBoost", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("pred_powerest")
+> ### * pred_powerest
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: pred_powerest
+> ### Title: Power value prediction
+> ### Aliases: pred_powerest
+> 
+> ### ** Examples
+> 
+> data(result_example)
+>  ## No test: 
+> b<-fit_powerest(result_example$power,result_example$avg_logFC,result_example$avg_PCT)
+> ## End(No test)
+>  ## No test: 
+> pred <- pred_powerest(b,xlim= c(0,6),ylim=c(0,1))
+> ## End(No test)
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("pred_powerest", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("vis_XGBoost")
+> ### * vis_XGBoost
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: vis_XGBoost
+> ### Title: Visualization of the power estimations from XGBoost
+> ### Aliases: vis_XGBoost
+> 
+> ### ** Examples
+> 
+> data(power_example)
+> # Fit the local power surface of avg_log2FC_abs between 1 and 2
+> avg_log2FC_abs_1_2<-dplyr::filter(power_example,avg_log2FC_abs>1 & avg_log2FC_abs<2)
+> # Fit the model
+> bst<-fit_XGBoost(power_example$power,avg_log2FC=power_example$avg_log2FC_abs,
++ avg_PCT=power_example$mean_pct,replicates=power_example$sample_size)
+[14:26:59] WARNING: src/objective/regression_obj.cu:213: reg:linear is now deprecated in favor of reg:squarederror.
+[1]	train-rmse:3.899410 
+[2]	train-rmse:3.526278 
+[3]	train-rmse:3.304421 
+[4]	train-rmse:3.162909 
+[5]	train-rmse:3.070662 
+[6]	train-rmse:3.022160 
+[7]	train-rmse:2.985705 
+[8]	train-rmse:2.960430 
+[9]	train-rmse:2.897214 
+[10]	train-rmse:2.851660 
+[11]	train-rmse:2.802100 
+[12]	train-rmse:2.767539 
+[13]	train-rmse:2.738521 
+[14]	train-rmse:2.721141 
+[15]	train-rmse:2.704307 
+[16]	train-rmse:2.691786 
+[17]	train-rmse:2.675275 
+[18]	train-rmse:2.653118 
+[19]	train-rmse:2.634277 
+[20]	train-rmse:2.612226 
+[21]	train-rmse:2.597224 
+[22]	train-rmse:2.591398 
+[23]	train-rmse:2.576851 
+[24]	train-rmse:2.561155 
+[25]	train-rmse:2.549148 
+[26]	train-rmse:2.541995 
+[27]	train-rmse:2.534172 
+[28]	train-rmse:2.531158 
+[29]	train-rmse:2.523874 
+[30]	train-rmse:2.513346 
+[31]	train-rmse:2.504330 
+[32]	train-rmse:2.499985 
+[33]	train-rmse:2.494602 
+[34]	train-rmse:2.490118 
+[35]	train-rmse:2.485187 
+[36]	train-rmse:2.481274 
+[37]	train-rmse:2.478983 
+[38]	train-rmse:2.474464 
+[39]	train-rmse:2.472630 
+[40]	train-rmse:2.470462 
+[41]	train-rmse:2.465974 
+[42]	train-rmse:2.463282 
+[43]	train-rmse:2.461544 
+[44]	train-rmse:2.459646 
+[45]	train-rmse:2.457870 
+[46]	train-rmse:2.457458 
+[47]	train-rmse:2.456774 
+[48]	train-rmse:2.454137 
+[49]	train-rmse:2.451836 
+[50]	train-rmse:2.448660 
+[51]	train-rmse:2.447398 
+[52]	train-rmse:2.446590 
+[53]	train-rmse:2.446181 
+[54]	train-rmse:2.445337 
+[55]	train-rmse:2.440712 
+[56]	train-rmse:2.439058 
+[57]	train-rmse:2.438639 
+[58]	train-rmse:2.438273 
+[59]	train-rmse:2.437549 
+[60]	train-rmse:2.436880 
+[61]	train-rmse:2.436747 
+[62]	train-rmse:2.436142 
+[63]	train-rmse:2.436074 
+[64]	train-rmse:2.436004 
+[65]	train-rmse:2.435452 
+[66]	train-rmse:2.435168 
+[67]	train-rmse:2.434432 
+[68]	train-rmse:2.434199 
+[69]	train-rmse:2.434129 
+[70]	train-rmse:2.433798 
+[71]	train-rmse:2.433172 
+[72]	train-rmse:2.432885 
+[73]	train-rmse:2.432878 
+[74]	train-rmse:2.432361 
+[75]	train-rmse:2.431104 
+[76]	train-rmse:2.430946 
+[77]	train-rmse:2.430928 
+[78]	train-rmse:2.430922 
+[79]	train-rmse:2.430885 
+[80]	train-rmse:2.430406 
+[81]	train-rmse:2.429241 
+[82]	train-rmse:2.428940 
+[83]	train-rmse:2.428897 
+[84]	train-rmse:2.428869 
+[85]	train-rmse:2.426834 
+[86]	train-rmse:2.425378 
+[87]	train-rmse:2.425094 
+[88]	train-rmse:2.425047 
+[89]	train-rmse:2.424926 
+[90]	train-rmse:2.424915 
+[91]	train-rmse:2.424905 
+[92]	train-rmse:2.424811 
+[93]	train-rmse:2.424751 
+[94]	train-rmse:2.424695 
+[95]	train-rmse:2.424657 
+[96]	train-rmse:2.424631 
+[97]	train-rmse:2.424603 
+[98]	train-rmse:2.424565 
+[99]	train-rmse:2.424548 
+[100]	train-rmse:2.424535 
+> pred<-pred_XGBoost(bst,n.grid=30,xlim=c(0,1.5),ylim=c(0,0.1),replicates=3)
+> vis_XGBoost(pred,view='2D',legend_name='Power',xlab='avg_log2FC_abs',ylab='mean_pct')
+> 
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("vis_XGBoost", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("vis_powerest")
+> ### * vis_powerest
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: vis_powerest
+> ### Title: Visualization of the power surface
+> ### Aliases: vis_powerest
+> 
+> ### ** Examples
+> 
+> data(result_example)
+>  ## No test: 
+> b<-fit_powerest(result_example$power,result_example$avg_logFC,result_example$avg_PCT)
+> ## End(No test)
+>  ## No test: 
+> pred <- pred_powerest(b,xlim= c(0,6),ylim=c(0,1))
+> ## End(No test)
+>  ## No test: 
+> vis_powerest(pred,theta=-30,phi=30,color='heat',ticktype = "detailed",xlim=c(0,6),nticks=5)
+> ## End(No test)
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("vis_powerest", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> ### * <FOOTER>
+> ###
+> cleanEx()
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  73.458 5.619 84.629 0.003 0.008 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')
