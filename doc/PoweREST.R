@@ -64,7 +64,7 @@ library(PoweREST)
 #  # Fit the local power surface of avg_log2FC_abs between 1 and 2
 #  avg_log2FC_abs_1_2<-dplyr::filter(power,avg_log2FC_abs>1 & avg_log2FC_abs<2)
 #  # Fit the model
-#  bst<-fit_XGBoost(power$power,avg_log2FC=power$avg_log2FC_abs,avg_PCT=power$mean_pct,replicates=power$sample_size)
+#  bst<-fit_XGBoost(avg_log2FC_abs_1_2$power,avg_log2FC=avg_log2FC_abs_1_2$avg_log2FC_abs,avg_PCT=avg_log2FC_abs_1_2$mean_pct,replicates=avg_log2FC_abs_1_2$sample_size)
 #  # Make predictions
 #  pred<-pred_XGBoost(bst,n.grid=30,xlim=c(0,1.5),ylim=c(0,0.1),replicates=3)
 
