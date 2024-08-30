@@ -44,7 +44,7 @@ install.packages(c("scam","Seurat","dplyr","plotly","resample","fields","patchwo
 ## How to use 'PoweREST'
 Detailed steps are introduced in [Tutorial](https://lanshui98.github.io/powerest_tutorial/).
 
-The vignette of the package is available [here](https://lanshui98.github.io/powerest/doc/PoweREST.html) showing a simple work flow.
+The vignette of the package is available [here](./doc/PoweREST.rmd) showing a simple work flow.
 
 The package manual is availible [here](./PoweREST.Rcheck/PoweREST-manual.pdf).
 
