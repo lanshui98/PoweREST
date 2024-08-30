@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-PoweREST is R package for the power analysis of detecting differential expressed genes between two conditions using 10X Visium spatial transcriptomics (ST). It enables the user to estimate the power or sample size needed for a 10X Visium ST experiment with and without prior dataset available by depicting how the study power is determined by three key parameters: 
+`PoweREST` is R package for the power analysis of detecting differential expressed genes between two conditions using 10X Visium spatial transcriptomics (ST). It enables the user to estimate the power or sample size needed for a 10X Visium ST experiment with and without prior dataset available by depicting how the study power is determined by three key parameters: 
 (i) the number of biological replicates; 
 (ii) the percentage of spots where the gene is detected in both groups; 
 (iii) the log-fold change in average expression between two groups. 
@@ -17,13 +17,13 @@ For detailed description of all methods and citation, please refer to our paper 
 
 ## Installation
 
-You can install the development version of PoweREST like so:
+You can install the development version of `PoweREST` like so:
 
 ``` r
 # install devtools if necessary
 install.packages('devtools')
 
-# install the PoweREST package from GitHub for the latest version
+# install the `PoweREST` package from GitHub for the latest version
 devtools::install_github('lanshui98/PoweREST')
 
 # or install it from the cran
@@ -44,7 +44,9 @@ install.packages(c("scam","Seurat","dplyr","plotly","resample","fields","patchwo
 ## How to use 'PoweREST'
 Detailed steps are introduced in [Tutorial](https://lanshui98.github.io/powerest_tutorial/).
 
-The vignette of the package is also available here.
+The vignette of the package is available [here](./doc/PoweREST.html) showing a simple work flow.
+
+The package manual is availible [here](./PoweREST.Rcheck/PoweREST-manual.pdf).
 
 # Issues
 All feedback, bug reports and suggestions are warmly welcomed! Please make sure to raise issues with a detailed and reproducible example and also please provide the output of your sessionInfo() in R! 
