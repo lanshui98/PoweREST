@@ -9,7 +9,7 @@
 (ii) the percentage of spots where the gene is detected in both groups; 
 (iii) the log-fold change in average expression between two groups. 
 
-PoweREST relies fully upon non-parametric modelling techniques but under biologically meaningful constraints which is extremely suitable for complex ST samples. The tool has been evaluated upon data from different tissue samples with promising and robust results.
+`PoweREST` relies fully upon non-parametric modelling techniques but under biologically meaningful constraints which is extremely suitable for complex ST samples. The tool has been evaluated upon data from different tissue samples with promising and robust results.
 
 A graphical interface of a shiny app is at the webpage [PoweREST](https://lanshui.shinyapps.io/PoweREST/), which provides power estimations upon different pilot ST datasets.
 
