@@ -44,7 +44,7 @@ install.packages(c("scam","Seurat","dplyr","plotly","resample","fields","patchwo
 ## How to use 'PoweREST'
 Detailed steps are introduced in [Tutorial](https://lanshui98.github.io/powerest_tutorial/).
 
-The package manual is availible [here](PoweREST.Rcheck/PoweREST-manual.pdf).
+The package manual is availible [here](PoweREST_0.1.0.pdf).
 
 # Issues
 All feedback, bug reports and suggestions are warmly welcomed! Please make sure to raise issues with a detailed and reproducible example and also please provide the output of your sessionInfo() in R! 
