@@ -6,7 +6,7 @@
 #' se=-1,zlim=NULL,n.grid=30,col=NA,plot.type="persp",
 #' nCol=50,...)
 #' @param x A \href{https://CRAN.R-project.org/package=scam}{scam} object.
-#' @param color The color of the plot which can be one of the "heat", "topo", "cm", "terrain" and "gray".
+#' @param color The color of the plot which can be one of the "heat", "topo", "cm", "terrain", "gray" or "bw".
 #' @param contour.col The color of the contour plot when using plot.type="contour".
 #' @param se If less than or equal to zero then only the predicted surface is plotted, but if
 #' greater than zero, then 3 surfaces are plotted, one at the predicted values minus se standard errors,
@@ -46,9 +46,9 @@ vis_powerest <- function(x,color="heat",contour.col=NULL,se=-1,zlim=NULL,n.grid=
     m1<-x$x
     m2<-x$y
     max.z <- max(z,na.rm=TRUE)
-    old.warn<-options(warn=-1)
+    suppressWarnings({
     av<-matrix(c(0.5,0.5,rep(0,n.grid-1)),n.grid,n.grid-1)
-    options(old.warn)
+    })
     surf.col<-t(av)%*%z%*%av # average over tiles
     if (!is.null(zlim))
     { if (length(zlim)!=2||zlim[1]>=zlim[2]) stop("Something wrong with zlim")
@@ -94,6 +94,7 @@ vis_powerest <- function(x,color="heat",contour.col=NULL,se=-1,zlim=NULL,n.grid=
     txt <- paste("persp(m1,m2,z,col=\"white\",zlim=c(min.z,max.z) ",stub,sep="") # assemble persp() call
     eval(parse(text=txt))
     par(op)
+    on.exit(par(op))
     } else
     { txt <- paste("persp(m1,m2,z,col=col,zlim=c(min.z,max.z)",stub,sep="")  # assemble persp() call
     eval(parse(text=txt))

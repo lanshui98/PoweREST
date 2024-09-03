@@ -11,7 +11,7 @@ nCol=50,...)
 \arguments{
 \item{x}{A \href{https://CRAN.R-project.org/package=scam}{scam} object.}
 
-\item{color}{The color of the plot which can be one of the "heat", "topo", "cm", "terrain" and "gray".}
+\item{color}{The color of the plot which can be one of the "heat", "topo", "cm", "terrain", "gray" or "bw".}
 
 \item{contour.col}{The color of the contour plot when using plot.type="contour".}
 
