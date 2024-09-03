@@ -46,6 +46,9 @@ Detailed steps are introduced in [Tutorial](https://lanshui98.github.io/powerest
 
 The package manual is availible [here](PoweREST_0.1.0.pdf).
 
+## Cite
+Lan Shui, Anirban Maitra, Ying Yuan, Ken Lau, Harsimran Kaur, Liang Li, Ziyi Li. bioRxiv 2024.08.30.610564; doi: https://doi.org/10.1101/2024.08.30.610564
+
 # Issues
 All feedback, bug reports and suggestions are warmly welcomed! Please make sure to raise issues with a detailed and reproducible example and also please provide the output of your sessionInfo() in R! 
 
