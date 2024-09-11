@@ -1,8 +1,16 @@
 
-# PoweREST
+# PoweREST <img src="man/figures/logo.png" align="right" height="139" />
 
 <!-- badges: start -->
+
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/PoweREST)](https://cran.r-project.org/package=PoweREST)
+[![Total CRAN
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/PoweREST)](https://cranlogs.r-pkg.org/badges/grand-total/PoweREST)
+[![GitHub R package
+version](https://img.shields.io/github/r-package/v/lanshui98/powerest?color=yellow&label=dev)](https://github.com/lanshui98/powerest/blob/main/DESCRIPTION)
+
 <!-- badges: end -->
+
 
 `PoweREST` is R package for the power analysis of detecting differential expressed genes between two conditions using 10X Visium spatial transcriptomics (ST). It enables the user to estimate the power or sample size needed for a 10X Visium ST experiment with and without prior dataset available by depicting how the study power is determined by three key parameters: 
 (i) the number of biological replicates; 
