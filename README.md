@@ -51,7 +51,7 @@ install.packages(c("scam","Seurat","dplyr","plotly","resample","fields","patchwo
 ## How to use PoweREST
 Detailed steps are introduced in [Tutorial](https://lanshui98.github.io/powerest_tutorial/).
 
-The package manual is availible [here](PoweREST_0.1.0.pdf).
+The package manual is availible [here](PoweREST_0.1.2.pdf).
 
 ## Cite PoweREST
 Shui, Lan, et al. "PoweREST: Statistical power estimation for spatial transcriptomics experiments to detect differentially expressed genes between two conditions." PLOS Computational Biology 21.7 (2025): e1013293.
